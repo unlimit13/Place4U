@@ -79,8 +79,8 @@ login_id.send_keys(Keys.ENTER)
 driver.implicitly_wait(10)
 
 time.sleep(8)
-word = "플리마켓"
-#word = input("태그 입력:")
+#word = "플리마켓"
+word = input("태그 입력:")
 word = str(word)
 url = insta_searching(word)
 
