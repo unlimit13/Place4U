@@ -13,11 +13,11 @@ def main():
     from SearchAndList.models import searchedList,searchedTag
     file = open("crawling_data.csv",'r')
     reader = csv.reader(file)
-    for line in reader:
+    new_tag = searchedTag(searchedTag_text="TEST", location="동탄",pub_date=timezone.now()) #입력한 태그&위치
+    new_tag.save()
+    #print(new_tag.id)
+    for line in reader: #태그로 검색된 모든 crawling data DB에 저장
         print(line)
-        new_tag = searchedTag(searchedTag_text="TEST", location="동탄",pub_date=timezone.now())
-        new_tag.save()
-        #print(new_tag.id)
         tag = searchedTag.objects.get(id=new_tag.id)
         tag.searchedlist_set.create(caption=line.caption,likes=line.like_count,place=gptcall())
     
