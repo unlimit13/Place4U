@@ -1,0 +1,10 @@
+<h1> 검색 태그 : {{ tag.searchedTag_text }}</h1>
+<h1> 검색 위치 : {{location}}</h1>
+<ul>
+{% for searchedlist in tag.searchedlist_set.all %}
+    <li>{{ searchedlist.caption }}</li>
+    <li>{{ searchedlist.likes }}</li>
+    <li>{{ searchedlist.place }}</li>
+{% endfor %}
+</ul>
+

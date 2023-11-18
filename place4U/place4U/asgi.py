@@ -1,5 +1,5 @@
 """
-ASGI config for place4u project.
+ASGI config for place4U project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'place4u.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'place4U.settings')
 
 application = get_asgi_application()

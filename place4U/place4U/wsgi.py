@@ -1,5 +1,5 @@
 """
-WSGI config for place4u project.
+WSGI config for place4U project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'place4u.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'place4U.settings')
 
 application = get_wsgi_application()

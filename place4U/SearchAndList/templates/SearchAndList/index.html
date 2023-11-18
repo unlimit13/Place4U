@@ -1,0 +1,30 @@
+<form action="" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="studentID">태그</label>
+        <input type="text" name="input_tag" id="input_tag">
+      </div>
+      <div>
+        <label for="name">위치</label>
+        <input type="text" name="input_location" id="input_location">
+      </div>
+      <br>
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" value="제출">
+</form>
+
+<h1>최근 검색어</h1>
+{% if latest_searchedTag_list %}
+    <ul>
+    {% for searchedTag in latest_searchedTag_list %}
+        <li>
+            <a href="{% url 'SearchAndList:results' searchedTag.id searchedTag.location%}">{{searchedTag.searchedTag_text}}, {{searchedTag.location}}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No recent tags.</p>
+{% endif %}
