@@ -6,49 +6,94 @@
         <title>Place4U</title>    
     </head>
     <body>
-        <h1> 검색 태그 : {{ tag.searchedTag_text }}</h1>
-        <h1> 검색 위치 : {{location}}</h1>
-        <ul>
-        {% for searchedlist in tag.searchedlist_set.all %}
-            <li>{{ searchedlist.caption }}</li>
-            <li>{{ searchedlist.likes }}</li>
-            <li>{{ searchedlist.place }}</li>
-        {% endfor %}
-        </ul>
+        <h2> 검색 태그 : {{ tag.searchedTag_text }}</h2>
+        <h2> 검색 위치 : {{ tag.location}}</h2>
 
-        <div id="map" style="width:300px;height:400px;"></div>
-        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=353089d7abd7184fb7a9dadfa82a8924&libraries=services,clusterer,drawing"></script>
+        <div id="map" style="width:600px;height:800px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8add0bcb02b451c746e38e3443e57e61&libraries=services,clusterer,drawing"></script>
+
         <script>
+            var center_position={
+                //latitude : 33.450701,
+                //longitude : 126.570667,
+                latitude : 37.202561,
+                longitude : 127.1052042,
+            }; //사용자 입력 위치
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-            mapOption = { 
-                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
-            };
-        
-        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-        
-        // 마커가 표시될 위치입니다 
-        var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
-        
-        // 마커를 생성합니다
-        var marker = new kakao.maps.Marker({
-            position: markerPosition
-        });
-        
-        // 마커가 지도 위에 표시되도록 설정합니다
-        marker.setMap(map);
+                mapOption = { 
+                    center: new kakao.maps.LatLng(center_position.latitude, center_position.longitude), // 지도의 중심좌표
+                    level: 5 // 지도의 확대 레벨
+                };
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+            
 
-        var iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-        iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+            var list = `{{tag.searchedlist_set.all}}`;
+            let positions = [
+                {% for list in tag.searchedlist_set.all%}
+                    {
+                        title: "{{list.Tag}}",
+                        content: "{{list.caption}}",
+                        list_likes: `{{list.likes}}`,
+                        latlng: "{{list.place}}", //좌표
+                    },
+                {% endfor %}
+            ];
 
-        // 인포윈도우를 생성합니다
-        var infowindow = new kakao.maps.InfoWindow({
-            position : iwPosition, 
-            content : iwContent 
-        });
-        infowindow.open(map, marker); 
+            // 마커를 표시할 위치와 title 객체 
+            var geocoder = new kakao.maps.services.Geocoder();
+
+            for (var i = 0; i < positions.length; i++) {
+                console.log(positions[i].list_likes);
+
+                geocoder.addressSearch(positions[i].latlng,function(result, status){
+                    
+                    if(status===kakao.maps.services.Status.OK){
+                        var coords = new kakao.maps.LatLng(result[0].y,result[0].x);
+                        console.log(coords);
+                    }
+                    
+                    var marker = new kakao.maps.Marker({
+                        map: map, // 마커를 표시할 지도
+                        position: coords, // 마커를 표시할 위치
+                        //title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                        clickable: true
+                    });
+
+                    kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, makeinfowindow(positions[i])));
+
+                });
+                // 마커를 생성합니다
+
+
+
+                            }
+            // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
+            function makeinfowindow(position){
+                var infowindow = new kakao.maps.InfoWindow({
+                    content : '<div style="padding:5px;">Hello World!</div>',//??
+                    removable : true
+                });
+                return infowindow
+            }
+            function makeOverListener(map, marker, infowindow) {
+                return function() {
+                    infowindow.open(map, marker);
+                };
+            }
         </script>
-        
+        <ol>
+            {% for searchedlist in tag.searchedlist_set.all %}
+            <li>
+                <ul>
+                    <li><b>Caption</b> : {{ searchedlist.caption }}</li>
+                    <li><b>Like</b> : {{ searchedlist.likes }}</li>
+                    <li><b>Place</b> :  {{ searchedlist.place }}</li>
+                </ul>
+
+            </li>
+            {% endfor %}
+            </li>
+        </ol>
 
     </body>
 </html>

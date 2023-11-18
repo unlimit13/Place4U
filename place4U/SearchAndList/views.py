@@ -29,6 +29,7 @@ def index(request):
                 __tag=tag
             else:
                 whole_Tag_List[0].pub_date = timezone.now()
+                whole_Tag_List[0].location = location
                 whole_Tag_List[0].save()
                 __tag=whole_Tag_List[0]
             return redirect('SearchAndList:results',__tag.id,__tag.location)

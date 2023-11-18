@@ -39,14 +39,9 @@
                 {{form.as_table}}
             </table>
             <input type="submit" value="제출">
-
-        </form>
-        <form action="" method="PUT">
-            {% csrf_token %}
             <input type="button" value="내 위치 사용" onclick=getUserLocation()>
 
-        </form>           
-
+        </form>
 
         <h1>최근 검색어</h1>
         {% if latest_searchedTag_list %}
