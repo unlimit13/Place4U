@@ -1,30 +1,68 @@
-<form action="" method="POST">
-    {% csrf_token %}
-    <div>
-        <label for="studentID">태그</label>
-        <input type="text" name="input_tag" id="input_tag">
-      </div>
-      <div>
-        <label for="name">위치</label>
-        <input type="text" name="input_location" id="input_location">
-      </div>
-      <br>
-    <table>
-        {{form.as_table}}
-    </table>
-    <input type="submit" value="제출">
-</form>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Place4U</title>    
+    </head>
+    <body>
+        <script>
+            position=0;
+            function success({coords}) {
+                positionobj={
+                    latitude : coords.latitude,
+                    longitude : coords.longitude
 
-<h1>최근 검색어</h1>
-{% if latest_searchedTag_list %}
-    <ul>
-    {% for searchedTag in latest_searchedTag_list %}
-        <li>
-            <a href="{% url 'SearchAndList:results' searchedTag.id searchedTag.location%}">{{searchedTag.searchedTag_text}}, {{searchedTag.location}}
-            </a>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No recent tags.</p>
-{% endif %}
+                }
+                position = positionobj;
+            }
+    
+            function getUserLocation() {
+                if (!navigator.geolocation) {
+                    throw "위치 정보가 지원되지 않습니다.";
+                }
+                if(navigator.geolocation.getCurrentPosition(success)){
+                    console.log("bbb"+position)
+                }
+                return 1;
+                
+            }
+            getUserLocation()
+
+            
+            
+        </script>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="studentID">태그</label>
+                <input type="text" name="input_tag" id="input_tag">
+            </div>
+            <div>
+                <label for="name">위치</label>
+                <input type="text" name="input_location" id="input_location">
+            </div>
+            <br>
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" value="제출">
+
+        </form>
+
+
+        <h1>최근 검색어</h1>
+        {% if latest_searchedTag_list %}
+            <ul>
+            {% for searchedTag in latest_searchedTag_list %}
+                <li>
+                    <a href="{% url 'SearchAndList:results' searchedTag.id searchedTag.location%}">{{searchedTag.searchedTag_text}}, {{searchedTag.location}}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No recent tags.</p>
+        {% endif %}
+    </body>
+</html>

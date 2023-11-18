@@ -1,10 +1,54 @@
-<h1> 검색 태그 : {{ tag.searchedTag_text }}</h1>
-<h1> 검색 위치 : {{location}}</h1>
-<ul>
-{% for searchedlist in tag.searchedlist_set.all %}
-    <li>{{ searchedlist.caption }}</li>
-    <li>{{ searchedlist.likes }}</li>
-    <li>{{ searchedlist.place }}</li>
-{% endfor %}
-</ul>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+        <title>Place4U</title>    
+    </head>
+    <body>
+        <h1> 검색 태그 : {{ tag.searchedTag_text }}</h1>
+        <h1> 검색 위치 : {{location}}</h1>
+        <ul>
+        {% for searchedlist in tag.searchedlist_set.all %}
+            <li>{{ searchedlist.caption }}</li>
+            <li>{{ searchedlist.likes }}</li>
+            <li>{{ searchedlist.place }}</li>
+        {% endfor %}
+        </ul>
 
+        <div id="map" style="width:500px;height:400px;"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=353089d7abd7184fb7a9dadfa82a8924&libraries=services,clusterer,drawing"></script>
+        <script>
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+        
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+        
+        // 마커가 표시될 위치입니다 
+        var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+        
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+        
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+        var iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            position : iwPosition, 
+            content : iwContent 
+        });
+        infowindow.open(map, marker); 
+        </script>
+        
+
+    </body>
+</html>
