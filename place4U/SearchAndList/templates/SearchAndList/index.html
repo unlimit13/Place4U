@@ -7,6 +7,7 @@
     </head>
     <body>
         <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8add0bcb02b451c746e38e3443e57e61&libraries=services,clusterer,drawing"></script>
+
         <script>
             function success({coords, timestamp}){
                 const latitude = coords.latitude;   // 위도
@@ -34,12 +35,12 @@
         <form action="" method="POST">
             {% csrf_token %}
             <div>
-                <label for="studentID">태그</label>
+                <label for="Tag">태그</label>
                 <input type="text" name="input_tag" id="input_tag">
             </div>
             <div>
-                <label for="name">위치</label>
-                <input type="text" name="input_location" id="input_location" value="">
+                <label for="Location">위치</label>
+                <input type="text" name="input_location" id="input_location" value="" >
             </div>
             <br>
             <table>
@@ -55,7 +56,7 @@
             <ul>
             {% for searchedTag in latest_searchedTag_list %}
                 <li>
-                    <a href="{% url 'SearchAndList:results' searchedTag.id searchedTag.location%}">{{searchedTag.searchedTag_text}}, {{searchedTag.location}}
+                    <a href="recent/{{searchedTag.id}}">{{searchedTag.searchedTag_text}}
                     </a>
                 </li>
             {% endfor %}

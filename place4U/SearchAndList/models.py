@@ -5,7 +5,6 @@ import datetime
 class searchedTag(models.Model):
     searchedTag_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
-    location = models.CharField(max_length=20)
     def __str__(self) -> str:
         return str(self.searchedTag_text)
     def was_published_recently(self):
