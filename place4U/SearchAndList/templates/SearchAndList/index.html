@@ -6,14 +6,21 @@
         <title>Place4U</title>    
     </head>
     <body>
-
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8add0bcb02b451c746e38e3443e57e61&libraries=services,clusterer,drawing"></script>
         <script>
-            position=0;
             function success({coords, timestamp}){
                 const latitude = coords.latitude;   // 위도
                 const longitude = coords.longitude; // 경도
-
-                document.getElementById("input_location").value=`${latitude}, ${longitude}`
+                console.log(latitude,longitude);
+                var geocoder = new kakao.maps.services.Geocoder();
+                geocoder.coord2RegionCode(longitude,latitude,function(result,status){
+                    if (status === kakao.maps.services.Status.OK){
+                        if (result[1].region_type === 'H'){
+                            document.getElementById("input_location").value=`${result[0].address_name}`
+                        }
+                    }
+                })
+                //document.getElementById("input_location").value=`${latitude}, ${longitude}`
                 //Kakao map을 통해 한글주소로 변경되어야 함
             }
             function getUserLocation() {
