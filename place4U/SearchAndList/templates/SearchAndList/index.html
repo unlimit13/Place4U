@@ -34,24 +34,34 @@
         </script>
         <form action="" method="POST">
             {% csrf_token %}
+            <p style="font-size:650%;margin-bottom:0;">Place4U</p>
+            <p style="margin-top:0;margin-left:95px;"><img src="https://ifh.cc/g/YTqR0w.jpg" alt="insta" width="170" height="70"></p>
             <div>
-                <label for="Tag">태그</label>
-                <input type="text" name="input_tag" id="input_tag">
+                <label for="Tag" style="height:40px;width:40px;">태그:</label>
+                <input type="text" name="input_tag" id="input_tag" style="height:40px;width:320px">
             </div>
             <div>
-                <label for="Location">위치</label>
-                <input type="text" name="input_location" id="input_location" value="" >
+                <label for="Location" style="height:40px;width:40px">위치:</label>
+                <input type="text" name="input_location" id="input_location" value="" style="height:40px;width:320px">
             </div>
             <br>
+            <br>
+
             <table>
                 {{form.as_table}}
             </table>
-            <input type="submit" value="제출">
-            <input type="button" value="내 위치 사용" onclick=getUserLocation()>
+            <input type="submit" style="height:40px;width:370px" value="제출">
+            <br>
+            <br>
+            <input type="button" style="height:40px;width:370px" value="내 위치 사용" onclick=getUserLocation()>
 
         </form>
-
-        <h1>최근 검색어</h1>
+        <style media="screen">
+            .static{
+                left:120px;
+            }
+        </style>
+        <h2 class = "static">최근 검색어</h2>
         {% if latest_searchedTag_list %}
             <ul>
             {% for searchedTag in latest_searchedTag_list %}

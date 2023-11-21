@@ -9,14 +9,16 @@
         <h2> 검색 태그 : {{ tag.searchedTag_text }}</h2>
         <h2> 검색 위치 : {{ location}}</h2>
 
-        <div id="map" style="width:370px;height:600px;"></div>
+        <div id="map" style="width:370px;height:400px;"></div>
         <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8add0bcb02b451c746e38e3443e57e61&libraries=services,clusterer,drawing"></script>
 
         <script>
+ 
             function pinMarker(map){
                 var list = `{{tag.searchedlist_set.all}}`;
                 let positions = [
                     {% for list in tag.searchedlist_set.all%}
+                    //여기에 place거리로 자르는 로직 들어가야함
                         {
                             title: "{{list.Tag}}",
                             content: "{{list.caption}}",
@@ -25,25 +27,26 @@
                             num: 1 //순서
                         },
                     {% endfor %}
-                ];
+                ]; 
                 for (var i = 0; i < positions.length; i++) {
                     geocoder.addressSearch(positions[i].latlng,function(result, status){
                         if(status===kakao.maps.services.Status.OK){
                             coords = new kakao.maps.LatLng(result[0].y,result[0].x);
                             var infowindow = new kakao.maps.InfoWindow({
-                                //content : '<div id="info" style="padding:5px;">123</div>',//??
+                                content : "123",
                                 //content : getcontent(),//??
                                 removable : true
                             });
+                            var marker = new kakao.maps.Marker({
+                                map: map, // 마커를 표시할 지도
+                                position: coords, // 마커를 표시할 위치
+                                //title : getindex(), // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                clickable: true
+                            });
+        
+                            kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker,infowindow));
                         }
-                        var marker = new kakao.maps.Marker({
-                            map: map, // 마커를 표시할 지도
-                            position: coords, // 마커를 표시할 위치
-                            //title : getindex(), // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                            clickable: true
-                        });
-    
-                        kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker,infowindow));
+
      
                     });
     
