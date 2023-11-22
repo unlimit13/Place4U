@@ -19,12 +19,12 @@ def index(request):
             location = form.cleaned_data['input_location']
             print(location)
             whole_Tag_List = searchedTag.objects.filter(
-                searchedTag_text=form.cleaned_data['input_tag']
+                searchedTag_text=form.cleaned_data['input_tag'],searchedLocation_text=location
                 )
             if len(whole_Tag_List)==0:
                 tag = searchedTag()
                 tag.searchedTag_text = form.cleaned_data['input_tag']
-                #tag.location = location
+                tag.searchedLocation_text = location
                 tag.pub_date = timezone.now()
                 tag.save()
                 __tag=tag

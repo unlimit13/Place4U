@@ -4,6 +4,7 @@ import datetime
 
 class searchedTag(models.Model):
     searchedTag_text = models.CharField(max_length=200)
+    searchedLocation_text = models.CharField(max_length=100)
     pub_date = models.DateTimeField("date published")
     def __str__(self) -> str:
         return str(self.searchedTag_text)

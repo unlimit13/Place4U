@@ -44,63 +44,49 @@
                     place.push(positions[i].latlng);
                     geocoder.addressSearch(positions[i].latlng,function(result, status){
                         if(status===kakao.maps.services.Status.OK){
-                            coords = new kakao.maps.LatLng(result[0].y,result[0].x);
+                            var coords = new kakao.maps.LatLng(result[0].y,result[0].x);
+                            var marker = new kakao.maps.Marker({
+                                map: map, // 마커를 표시할 지도
+                                position: coords, // 마커를 표시할 위치
+                                //title : getindex(), // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                                clickable: true
+                            });
+        
+                            kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker,getinfowindow()));
+         
 
                         }
-                        var marker = new kakao.maps.Marker({
-                            map: map, // 마커를 표시할 지도
-                            position: coords, // 마커를 표시할 위치
-                            //title : getindex(), // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                            clickable: true
-                        });
-    
-                        kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker,getinfowindow()));
-     
+
                     });
     
                     
                 }
             }
-            function success({coords, timestamp}){
-                const latitude = coords.latitude;   // 위도
-                const longitude = coords.longitude; // 경도
-                var coords = new kakao.maps.LatLng(latitude, longitude)
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                mapOption = { 
-                    center: coords, // 지도의 중심좌표
-                    level: 7 // 지도의 확대 레벨
-                };
-                var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-                var markerImageSrc = 'https://ifh.cc/g/Tzn9L2.png';
-                var imageSize = new kakao.maps.Size(30, 30); 
-                var markerImage = new kakao.maps.MarkerImage(markerImageSrc, imageSize); 
-                var center_marker= new kakao.maps.Marker({
-                    map:map,
-                    position: coords,
-                    image:markerImage
-                })
-                var geocoder = new kakao.maps.services.Geocoder();
-                geocoder.coord2RegionCode(longitude,latitude,function(result,status){
-                    if (status === kakao.maps.services.Status.OK){
-                        if (result[1].region_type === 'H'){
-                            document.getElementById("search_location").innerText="검색 위치 : " +`${result[0].address_name}`
-                        
-                        }
-                    }
-                })
-
-                pinMarker(map);
-                //document.getElementById("input_location").value=`${latitude}, ${longitude}`
-                //Kakao map을 통해 한글주소로 변경되어야 함
-            }
-            function getUserLocation() {
-                if (!navigator.geolocation) {
-                    throw "위치 정보가 지원되지 않습니다.";
+            geocoder.addressSearch(`{{tag.searchedLocation_text}}`,function(result, status){
+                if(status===kakao.maps.services.Status.OK){
+                    var coords = new kakao.maps.LatLng(result[0].y,result[0].x);
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+                    mapOption = { 
+                        center: coords, // 지도의 중심좌표
+                        level: 7 // 지도의 확대 레벨
+                    };
+                    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+                    var markerImageSrc = 'https://ifh.cc/g/Tzn9L2.png';
+                    var imageSize = new kakao.maps.Size(30, 30); 
+                    var markerImage = new kakao.maps.MarkerImage(markerImageSrc, imageSize); 
+                    var center_marker= new kakao.maps.Marker({
+                        map:map,
+                        position: coords,
+                        image:markerImage
+                    })
+                    document.getElementById("search_location").innerText="검색 위치 : " +`{{tag.searchedLocation_text}}`;
+                    pinMarker(map);
+                    
                 }
-                navigator.geolocation.getCurrentPosition(success)
-                
-            }
-            getUserLocation();
+
+
+            });
+
             
             
 
