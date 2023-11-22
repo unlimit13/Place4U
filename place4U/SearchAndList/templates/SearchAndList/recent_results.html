@@ -6,14 +6,27 @@
         <title>Place4U</title>    
     </head>
     <body>
-        <h2> 검색 태그 : {{ tag.searchedTag_text }}</h2>
-        <h2 id="search_location"> 검색 위치 : </h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p> <strong>#태그 :: </strong><u>{{ tag.searchedTag_text }}</u>&ensp;&ensp;&ensp;<strong>#위치 :: </strong><u>{{ tag.searchedLocation_text}}</u></p>
+            <div>
+                <label for="Tag" style="height:40px;width:40px;">최소 좋아요 수:</label>
+                <input type="text" name="input_threshold" id="input_threshold" style="height:40px;width:265px">
+            </div>
+            <table>
+                {{form.as_table}}
+            </table>
+
+            <input type="submit" style="height:40px;width:370px" value="Filter">
+
+        </form>
         <div id="map" style="width:370px;height:400px;"></div>
         <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8add0bcb02b451c746e38e3443e57e61&libraries=services,clusterer,drawing"></script>
 
         <script>
 
             var geocoder = new kakao.maps.services.Geocoder();
+            document.getElementById("input_threshold").value=0;
             place=[];
             function getinfowindow(){
                 
@@ -40,7 +53,6 @@
                         },
                     {% endfor %}
                 ];
-                console.log(positions);
                 for (var i = 0; i < positions.length; i++) {
                     place.push(positions[i].latlng);
                     geocoder.addressSearch(positions[i].latlng,function(result, status){
@@ -80,7 +92,6 @@
                         position: coords,
                         image:markerImage
                     })
-                    document.getElementById("search_location").innerText="검색 위치 : " +`{{tag.searchedLocation_text}}`;
                     pinMarker(map);
                     
                 }
@@ -112,15 +123,17 @@
             }
         </script>
         <ol>
-            {% for searchedlist in tag.searchedlist_set.all %}
-            <li>
-                <ul>
-                    <li><b>Caption</b> : {{ searchedlist.caption }}</li>
-                    <li><b>Likes</b> : {{ searchedlist.likes }}</li>
-                    <li><b>Place</b> :  {{ searchedlist.place }}</li>
-                </ul>
+            {% for searchedlist in tag.searched_lists.all %}
+            <div style="width:340px;" id="result_lists">
+                <li>
+                    <ul>
+                        <li>{{ searchedlist.caption }}</li>
+                        <li><b>Likes</b> : {{ searchedlist.likes }}</li>
+                        <li><b>Place</b> :  {{ searchedlist.place }}</li>
+                    </ul>
 
-            </li>
+                </li>
+            </div>
             {% endfor %}
             </li>
         </ol>

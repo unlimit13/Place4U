@@ -8,25 +8,27 @@
     <body>
         <form action="" method="POST">
             {% csrf_token %}
-            <p> <strong>#태그 :: </strong><u>{{ tag.searchedTag_text }}</u>&ensp;&ensp;&ensp;<strong>#위치 :: </strong><u>{{ location}}</u></p>
+            <p> <strong>#태그 :: </strong><u>{{ tag.searchedTag_text }}</u>&ensp;&ensp;&ensp;<strong>#위치 :: </strong><u>{{ tag.searchedLocation_text}}</u></p>
             <div>
                 <label for="Tag" style="height:40px;width:40px;">최소 좋아요 수:</label>
-                <input type="number" name="input_threshold" id="input_threshold" style="height:40px;width:265px">
+                <input type="text" name="input_threshold" id="input_threshold" style="height:40px;width:265px">
             </div>
             <table>
                 {{form.as_table}}
             </table>
-            <input type="submit" style="height:40px;width:370px" value="Filter">
-            
-        </form>
 
+            <input type="submit" style="height:40px;width:370px" value="Filter">
+
+        </form>
         <div id="map" style="width:370px;height:400px;"></div>
         <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8add0bcb02b451c746e38e3443e57e61&libraries=services,clusterer,drawing"></script>
+
         <script>
-        </script>
-        <script>
-            place=[]
-            document.getElementById("input_threshold").value=0;
+
+            var geocoder = new kakao.maps.services.Geocoder();
+            place=[];
+            var threshold = Number(`{{threshold}}`);
+            document.getElementById("input_threshold").value=threshold;
             function getinfowindow(){
                 
                 var infowindow = new kakao.maps.InfoWindow({
@@ -38,6 +40,7 @@
                 return infowindow
             }
             function pinMarker(map){
+                
                 var list = `{{tag.searched_lists.all}}`;
                 let positions = [
                     {% for list in tag.searched_lists.all%}
@@ -50,13 +53,19 @@
                             num: 1 //순서
                         },
                     {% endfor %}
-                ]; 
+                ];
+                console.log(positions);
                 for (var i = 0; i < positions.length; i++) {
+
+                    if (Number(positions[i].list_likes) < threshold) continue;
+                    var li = document.createElement('li');
+                    li.innerHTML = `<ul><li>${ positions[i].content }</li><li><b>Likes</b> : ${ positions[i].list_likes }</li><li><b>Place</b> :  ${ positions[i].latlng }</li></ul>`;
+                    document.querySelector('#result_lists').appendChild(li) //필터링
+
                     place.push(positions[i].latlng);
                     geocoder.addressSearch(positions[i].latlng,function(result, status){
                         if(status===kakao.maps.services.Status.OK){
-                            coords = new kakao.maps.LatLng(result[0].y,result[0].x);
-     
+                            var coords = new kakao.maps.LatLng(result[0].y,result[0].x);
                             var marker = new kakao.maps.Marker({
                                 map: map, // 마커를 표시할 지도
                                 position: coords, // 마커를 표시할 위치
@@ -65,28 +74,24 @@
                             });
         
                             kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker,getinfowindow()));
+         
+
                         }
 
-     
                     });
     
                     
                 }
             }
-            var geocoder = new kakao.maps.services.Geocoder();
-            console.log("{{location}}");
-            geocoder.addressSearch("{{location}}",function(result, status){
+            geocoder.addressSearch(`{{tag.searchedLocation_text}}`,function(result, status){
                 if(status===kakao.maps.services.Status.OK){
                     var coords = new kakao.maps.LatLng(result[0].y,result[0].x);
-                    console.log(coords);
                     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
                     mapOption = { 
                         center: coords, // 지도의 중심좌표
-                        //center : center_coords[0],
                         level: 7 // 지도의 확대 레벨
                     };
                     var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
                     var markerImageSrc = 'https://ifh.cc/g/Tzn9L2.png';
                     var imageSize = new kakao.maps.Size(30, 30); 
                     var markerImage = new kakao.maps.MarkerImage(markerImageSrc, imageSize); 
@@ -96,9 +101,15 @@
                         image:markerImage
                     })
                     pinMarker(map);
+                    
                 }
 
+
             });
+
+            
+            
+
 
 
             // 입력된 list들의 주소->좌표 변경 후 marker 생성
@@ -119,20 +130,10 @@
                 };
             }
         </script>
- 
         <ol>
-            {% for searchedlist in tag.searched_lists.all %}
-            <div style="width:340px;" id = "result_lists">
-                <li>
-                    <ul>
-                        <li> {{ searchedlist.caption }}</li>
-                        <li><b>Likes</b> : {{ searchedlist.likes }}</li>
-                        <li><b>Place</b> :  {{ searchedlist.place }}</li>
-                    </ul>
+            <div style="width:340px;" id="result_lists">
 
-                </li>
             </div>
-            {% endfor %}
         </ol>
 
     </body>

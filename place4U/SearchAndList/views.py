@@ -3,7 +3,7 @@ from django.http import HttpResponse,Http404
 from django.template import loader
 from django.utils import timezone
 from .models import searchedTag
-from .forms import searchedTagForm
+from .forms import searchedTagForm,likethresholdForm
 
 def index(request):
     
@@ -15,6 +15,7 @@ def index(request):
     __tag=0
     if request.method=='POST':
         form = searchedTagForm(request.POST)
+        print(form)
         if form.is_valid():
             location = form.cleaned_data['input_location']
             print(location)
@@ -41,7 +42,6 @@ def index(request):
     '''output = ", ".join([q.searchedTag_text for q in latest_Tag_List])
     return HttpResponse(output)'''
 
-
 def results(request,tag_id,location):
     try:
         tag = searchedTag.objects.get(pk=tag_id)
@@ -49,6 +49,12 @@ def results(request,tag_id,location):
         tag.save()
     except searchedTag.DoesNotExist:
         raise Http404("Tag does not exist")
+    if request.method =='POST':
+        form = likethresholdForm(request.POST)
+        if form.is_valid():
+            like_threshold=form.cleaned_data['input_threshold']
+            return redirect('SearchAndList:filtered_results',tag.id,location,like_threshold)
+    
     context = {
         "tag" : tag,
         "location" : location,
@@ -57,22 +63,72 @@ def results(request,tag_id,location):
     return render(request,"SearchAndList/results.html",context)
     #return HttpResponse("You're looking at Tag %s." % tag_id)
     
-def recent_results(request,tag_id):
+def filtered_results(request,tag_id,location,like_threshold):
     try:
         tag = searchedTag.objects.get(pk=tag_id)
         tag.pub_date = timezone.now()
         tag.save()
     except searchedTag.DoesNotExist:
         raise Http404("Tag does not exist")
+    if request.method=='POST':
+        form = likethresholdForm(request.POST)
+        if form.is_valid():
+            __like_threshold=form.cleaned_data['input_threshold']
+            return redirect('SearchAndList:filtered_results',tag.id,location,__like_threshold)
+    
     context = {
         "tag" : tag,
+        "location" : location,
+        "threshold" : like_threshold
+    }
+
+    return render(request,"SearchAndList/filtered_results.html",context)
+
+def recent_results(request,tag_id):
+    like_threshold=0
+    try:
+        tag = searchedTag.objects.get(pk=tag_id)
+        tag.pub_date = timezone.now()
+        tag.save()
+    except searchedTag.DoesNotExist:
+        raise Http404("Tag does not exist")
+
+    if request.method =='POST':
+        form = likethresholdForm(request.POST)
+        if form.is_valid():
+            like_threshold=form.cleaned_data['input_threshold']
+            return redirect('SearchAndList:filtered_recent_results',tag.id,like_threshold)
+    
+    context = {
+        "tag" : tag,
+        "threshold" : like_threshold,
     }
 
     return render(request,"SearchAndList/recent_results.html",context)
 
 
 
-def vote(request, tag_id):
-    return HttpResponse("You're voting on question %s." % tag_id)
+def filtered_recent_results(request,tag_id,like_threshold):
+    try:
+        tag = searchedTag.objects.get(pk=tag_id)
+        tag.pub_date = timezone.now()
+        tag.save()
+    except searchedTag.DoesNotExist:
+        raise Http404("Tag does not exist")
+    
+    if request.method=='POST':
+        form = likethresholdForm(request.POST)
+        if form.is_valid():
+            __like_threshold=form.cleaned_data['input_threshold']
+            return redirect('SearchAndList:filtered_recent_results',tag.id,__like_threshold)
+            
+    context = {
+        "tag" : tag,
+        "threshold" : like_threshold,
+    }
+
+    return render(request,"SearchAndList/filtered_recent_results.html",context)
+
+
 
 # Create your views here.
