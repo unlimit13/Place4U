@@ -25,12 +25,12 @@
                 return infowindow
             }
             function pinMarker(map){
-                var list = `{{tag.searchedlist_set.all}}`;
+                var list = `{{tag.searched_lists.all}}`;
                 let positions = [
-                    {% for list in tag.searchedlist_set.all%}
+                    {% for list in tag.searched_lists.all%}
                     //여기에 place거리로 자르는 로직 들어가야함
                         {
-                            title: "{{list.Tag}}",
+                            title: "{{list.tag_location}}",
                             content: "{{list.caption}}",
                             list_likes: `{{list.likes}}`,
                             latlng: "{{list.place}}",
