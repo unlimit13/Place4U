@@ -14,6 +14,17 @@
         <script>
 
             var geocoder = new kakao.maps.services.Geocoder();
+            place=[];
+            function getinfowindow(){
+                
+                var infowindow = new kakao.maps.InfoWindow({
+                    content : `<p id="info" style="padding:5px;font-size:12px">${place[0]}</p>`,
+                    //content : getcontent(),//??
+                    removable : true
+                });
+                place.shift();
+                return infowindow
+            }
             function pinMarker(map){
                 
                 var list = `{{tag.searchedlist_set.all}}`;
@@ -30,14 +41,11 @@
                     {% endfor %}
                 ];
                 for (var i = 0; i < positions.length; i++) {
+                    place.push(positions[i].latlng);
                     geocoder.addressSearch(positions[i].latlng,function(result, status){
                         if(status===kakao.maps.services.Status.OK){
                             coords = new kakao.maps.LatLng(result[0].y,result[0].x);
-                            var infowindow = new kakao.maps.InfoWindow({
-                                content : '<div id="info" style="padding:5px;">123</div>',
-                                //content : getcontent(),//??
-                                removable : true
-                            });
+
                         }
                         var marker = new kakao.maps.Marker({
                             map: map, // 마커를 표시할 지도
@@ -46,7 +54,7 @@
                             clickable: true
                         });
     
-                        kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker,infowindow));
+                        kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker,getinfowindow()));
      
                     });
     
