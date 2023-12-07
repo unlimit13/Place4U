@@ -10,7 +10,7 @@ def index(request):
     
     latest_Tag_List = searchedTag.objects.order_by("-pub_date")[:5]
     #template = loader.get_template("SearchAndList/index.html")
-    AI_tag = get_word()
+    AI_tag = get_word(latest_Tag_List)
     context = {
         "latest_searchedTag_list" : latest_Tag_List,
         "AI_Tag" : AI_tag,
