@@ -35,10 +35,13 @@ def return_silimar_word_list(client, input_message_list):
     return chat_completion.choices[0].message.content
 
 
-if __name__ == '__main__':
+def get_word():
+#if __name__ == '__main__':
+    return_result=[]
     words = "빵, 초코우유, 라떼, 소고기, 탕후루, 자몽에이드, 아메리카노, 돼지고기, 짬뽕, 떡볶이"
     words_list = ['빵', '초코우유', '라떼', '소고기', '탕후루', '자몽에이드', '아메리카노', '돼지고기', '짬뽕', '떡볶이']
     result_word = return_silimar_word(CLIENT, words)
-    print(result_word)
+    return_result.append(result_word)
     result_word = return_silimar_word_list(CLIENT, words_list)
-    print(result_word)
+    return_result.append(result_word)
+    return return_result

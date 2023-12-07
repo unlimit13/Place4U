@@ -4,13 +4,16 @@ from django.template import loader
 from django.utils import timezone
 from .models import searchedTag
 from .forms import searchedTagForm,likethresholdForm
+from .return_word_gpt import get_word
 
 def index(request):
     
     latest_Tag_List = searchedTag.objects.order_by("-pub_date")[:5]
     #template = loader.get_template("SearchAndList/index.html")
+    AI_tag = get_word()
     context = {
         "latest_searchedTag_list" : latest_Tag_List,
+        "AI_Tag" : AI_tag,
     }
     __tag=0
     if request.method=='POST':

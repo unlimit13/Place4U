@@ -74,5 +74,18 @@
         {% else %}
             <p>No recent tags.</p>
         {% endif %}
+        <h2 class = "static">AI 추천태그</h2>
+        {% if AI_Tag %}
+            <ul>
+            {% for recommendedTag in AI_Tag %}
+                <li>
+                    <a href="/">{{recommendedTag}}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No recent tags.</p>
+        {% endif %}
     </body>
 </html>
