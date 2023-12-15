@@ -682,3 +682,8 @@ Not Found: /favicon.ico
 [pid: 105502|app: 0|req: 18/48] 83.97.73.87 () {40 vars in 601 bytes} [Fri Dec 15 07:32:27 2023] GET / => generated 3929 bytes in 38 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
 Not Found: /autodiscover/autodiscover.json
 [pid: 105500|app: 0|req: 14/49] 198.199.109.66 () {38 vars in 531 bytes} [Fri Dec 15 08:21:44 2023] GET /autodiscover/autodiscover.json?@zdi/Powershell => generated 3242 bytes in 9 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+['볶음밥', '삼선짬뽕', '삼선짜장', '탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+볶음밥
+최근 검색 : 볶음밥
+추천된 태그 : 삼선짬뽕
+[pid: 105501|app: 0|req: 11/50] 162.216.149.9 () {36 vars in 682 bytes} [Fri Dec 15 08:50:15 2023] GET / => generated 3929 bytes in 572 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
