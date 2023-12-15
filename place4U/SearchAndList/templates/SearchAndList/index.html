@@ -76,13 +76,13 @@
         {% endif %}
         <h2 class = "static">AI 추천태그</h2>
         {% if AI_Tag %}
-            <ol>
+            <ul>
             {% for recommendedTag in AI_Tag %}
                 <li>
                     {{recommendedTag}}
                 </li>
             {% endfor %}
-            </ol>
+            </ul>
         {% else %}
             <p>No recommended tags.</p>
         {% endif %}

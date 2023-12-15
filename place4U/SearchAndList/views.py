@@ -5,12 +5,24 @@ from django.utils import timezone
 from .models import searchedTag
 from .forms import searchedTagForm,likethresholdForm
 from .return_word_gpt import get_word
+from .return_word_word2vec import get_word2vec
+from datetime import datetime,date
 
 def index(request):
+    today = date.today()
+    latest_Tag_List = searchedTag.objects.filter(pub_date__day=today.day).order_by("-pub_date")
+    if len(latest_Tag_List) >=5:
+        latest_Tag_List = latest_Tag_List[:5]
     
-    latest_Tag_List = searchedTag.objects.order_by("-pub_date")[:5]
-    #template = loader.get_template("SearchAndList/index.html")
-    AI_tag = get_word(latest_Tag_List)
+    if len(latest_Tag_List) <=2:
+        AI_tag = ["과거 검색기록이 부족합니다"]
+    else:
+        entire_Tag_list= searchedTag.objects.filter(pub_date__day=today.day).order_by("-pub_date")
+        last_Tag= searchedTag.objects.filter(pub_date__day=today.day).order_by("-pub_date")[0:1].values_list('searchedTag_text',flat=True)
+        #template = loader.get_template("SearchAndList/index.html")
+        #AI_tag = get_word(latest_Tag_List)
+        AI_tag = get_word2vec(entire_Tag_list,last_Tag)
+        
     context = {
         "latest_searchedTag_list" : latest_Tag_List,
         "AI_Tag" : AI_tag,

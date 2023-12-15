@@ -1,0 +1,684 @@
+*** Starting uWSGI 2.0.23 (64bit) on [Thu Dec 14 23:03:38 2023] ***
+compiled with version: 11.4.0 on 21 November 2023 09:02:05
+os: Linux-6.2.0-37-generic #38~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov  2 18:01:13 UTC 2
+nodename: hyungjun-530U4C
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/hyungjun/workspace/ktp522/place4U
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/hyungjun/workspace/ktp522/place4U
+your processes number limit is 14454
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x555948b45250
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437424 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x555948b45250 pid: 95490 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 95490)
+spawned uWSGI worker 1 (pid: 95493, cores: 1)
+spawned uWSGI worker 2 (pid: 95494, cores: 1)
+spawned uWSGI worker 3 (pid: 95495, cores: 1)
+spawned uWSGI worker 4 (pid: 95496, cores: 1)
+spawned uWSGI worker 5 (pid: 95497, cores: 1)
+[pid: 95496|app: 0|req: 1/1] 192.168.0.1 () {62 vars in 1206 bytes} [Thu Dec 14 14:04:27 2023] GET / => generated 3231 bytes in 2118 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 95496|app: 0|req: 2/2] 192.168.0.1 () {60 vars in 1139 bytes} [Thu Dec 14 14:04:29 2023] GET /favicon.ico => generated 3169 bytes in 13 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.23 (64bit) on [Thu Dec 14 23:09:23 2023] ***
+compiled with version: 11.4.0 on 21 November 2023 09:02:05
+os: Linux-6.2.0-37-generic #38~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov  2 18:01:13 UTC 2
+nodename: hyungjun-530U4C
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/hyungjun/workspace/ktp522/place4U
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/hyungjun/workspace/ktp522/place4U
+your processes number limit is 14454
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55ad5ac26250
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437424 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55ad5ac26250 pid: 96177 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 96177)
+spawned uWSGI worker 1 (pid: 96180, cores: 1)
+spawned uWSGI worker 2 (pid: 96181, cores: 1)
+spawned uWSGI worker 3 (pid: 96182, cores: 1)
+spawned uWSGI worker 4 (pid: 96183, cores: 1)
+spawned uWSGI worker 5 (pid: 96184, cores: 1)
+[pid: 96183|app: 0|req: 1/1] 192.168.0.1 () {62 vars in 1206 bytes} [Thu Dec 14 14:09:28 2023] GET / => generated 3232 bytes in 1842 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96183|app: 0|req: 2/2] 192.168.0.1 () {60 vars in 1139 bytes} [Thu Dec 14 14:09:30 2023] GET /favicon.ico => generated 3169 bytes in 11 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+<ul class="errorlist"><li>This field is required.</li></ul>
+<input type="text" name="input_tag" maxlength="100" required aria-invalid="true" id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+<ul class="errorlist"><li>This field is required.</li></ul>
+<input type="text" name="input_location" maxlength="100" required aria-invalid="true" id="id_input_location">
+    
+      
+    
+</div>
+[pid: 96183|app: 0|req: 3/3] 192.168.0.1 () {72 vars in 1437 bytes} [Thu Dec 14 14:09:40 2023] POST / => generated 3232 bytes in 18 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 4/4] 192.168.0.1 () {62 vars in 1206 bytes} [Thu Dec 14 14:09:44 2023] GET / => generated 3232 bytes in 7 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 5/5] 192.168.0.1 () {62 vars in 1206 bytes} [Thu Dec 14 14:09:53 2023] GET / => generated 3232 bytes in 3 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96183|app: 0|req: 6/6] 192.168.0.1 () {60 vars in 1139 bytes} [Thu Dec 14 14:09:53 2023] GET /favicon.ico => generated 3169 bytes in 14 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 1/7] 192.168.0.1 () {62 vars in 1206 bytes} [Thu Dec 14 14:09:57 2023] GET / => generated 3232 bytes in 1855 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96184|app: 0|req: 2/8] 192.168.0.1 () {60 vars in 1139 bytes} [Thu Dec 14 14:09:59 2023] GET /favicon.ico => generated 3169 bytes in 11 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 3/9] 213.152.162.5 () {40 vars in 608 bytes} [Thu Dec 14 14:16:41 2023] GET / => generated 3232 bytes in 5 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /HNAP1/
+[pid: 96184|app: 0|req: 4/10] 213.152.162.5 () {44 vars in 716 bytes} [Thu Dec 14 14:16:43 2023] GET /HNAP1/ => generated 3154 bytes in 8 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+Not Found: /actuator/health
+[pid: 96184|app: 0|req: 5/11] 162.243.138.50 () {38 vars in 470 bytes} [Thu Dec 14 16:49:33 2023] GET /actuator/health => generated 3181 bytes in 8 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 6/12] 130.211.54.158 () {46 vars in 609 bytes} [Thu Dec 14 17:48:49 2023] GET / => generated 3232 bytes in 6 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 7/13] 193.42.62.221 () {40 vars in 467 bytes} [Thu Dec 14 18:16:09 2023] GET / => generated 3232 bytes in 9 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 8/14] 193.42.62.221 () {40 vars in 467 bytes} [Thu Dec 14 18:16:12 2023] GET / => generated 3232 bytes in 9 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /version
+[pid: 96184|app: 0|req: 9/15] 138.68.208.40 () {38 vars in 453 bytes} [Thu Dec 14 20:14:07 2023] GET /version => generated 3157 bytes in 27 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 10/16] 107.170.249.30 () {38 vars in 440 bytes} [Thu Dec 14 21:37:20 2023] GET / => generated 3232 bytes in 12 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 7/17] 207.90.244.6 () {38 vars in 586 bytes} [Thu Dec 14 21:38:56 2023] GET / => generated 3232 bytes in 8 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /robots.txt
+[pid: 96183|app: 0|req: 8/18] 207.90.244.6 () {34 vars in 404 bytes} [Thu Dec 14 21:39:08 2023] GET /robots.txt => generated 3166 bytes in 14 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+Not Found: /sitemap.xml
+[pid: 96183|app: 0|req: 9/19] 207.90.244.6 () {34 vars in 406 bytes} [Thu Dec 14 21:39:09 2023] GET /sitemap.xml => generated 3169 bytes in 13 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+Not Found: /.well-known/security.txt
+[pid: 96183|app: 0|req: 10/20] 207.90.244.6 () {34 vars in 432 bytes} [Thu Dec 14 21:39:10 2023] GET /.well-known/security.txt => generated 3208 bytes in 14 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96183|app: 0|req: 11/21] 207.90.244.6 () {40 vars in 592 bytes} [Thu Dec 14 21:39:11 2023] GET /favicon.ico => generated 3169 bytes in 13 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 12/22] 45.55.133.92 () {40 vars in 514 bytes} [Thu Dec 14 22:26:02 2023] GET / => generated 3232 bytes in 9 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96183|app: 0|req: 13/23] 45.55.133.92 () {50 vars in 724 bytes} [Thu Dec 14 22:26:02 2023] GET /favicon.ico => generated 3169 bytes in 14 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 11/24] 167.94.138.50 () {38 vars in 488 bytes} [Thu Dec 14 22:39:47 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96180|app: 0|req: 1/25] 167.94.138.50 () {38 vars in 516 bytes} [Thu Dec 14 22:39:49 2023] GET /favicon.ico => generated 3169 bytes in 2010 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 14/26] 87.236.176.181 () {42 vars in 565 bytes} [Fri Dec 15 00:10:14 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 15/27] 143.198.143.69 () {40 vars in 539 bytes} [Fri Dec 15 00:12:22 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 16/28] 199.45.155.33 () {38 vars in 488 bytes} [Fri Dec 15 00:31:42 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96183|app: 0|req: 17/29] 199.45.155.33 () {38 vars in 516 bytes} [Fri Dec 15 00:31:44 2023] GET /favicon.ico => generated 3169 bytes in 27 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 12/30] 167.94.146.51 () {32 vars in 357 bytes} [Fri Dec 15 01:35:30 2023] GET / => generated 3232 bytes in 5 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 18/31] 167.94.146.51 () {38 vars in 488 bytes} [Fri Dec 15 01:35:34 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96183|app: 0|req: 19/32] 167.94.146.51 () {38 vars in 516 bytes} [Fri Dec 15 01:35:36 2023] GET /favicon.ico => generated 3169 bytes in 27 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 20/33] 199.45.154.19 () {32 vars in 357 bytes} [Fri Dec 15 01:40:33 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96182|app: 0|req: 1/34] 199.45.154.19 () {38 vars in 488 bytes} [Fri Dec 15 01:40:40 2023] GET / => generated 3232 bytes in 1826 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96184|app: 0|req: 13/35] 199.45.154.19 () {38 vars in 516 bytes} [Fri Dec 15 01:40:45 2023] GET /favicon.ico => generated 3169 bytes in 26 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 14/36] 181.214.206.8 () {52 vars in 953 bytes} [Fri Dec 15 01:40:57 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 15/37] 78.153.140.219 () {40 vars in 562 bytes} [Fri Dec 15 03:03:28 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 16/38] 52.187.54.3 () {40 vars in 566 bytes} [Fri Dec 15 03:28:21 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 17/39] 167.94.138.36 () {38 vars in 488 bytes} [Fri Dec 15 03:39:39 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96184|app: 0|req: 18/40] 167.94.138.36 () {38 vars in 516 bytes} [Fri Dec 15 03:39:41 2023] GET /favicon.ico => generated 3169 bytes in 27 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 19/41] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 04:04:13 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96184|app: 0|req: 20/42] 125.131.72.210 () {60 vars in 1142 bytes} [Fri Dec 15 04:04:13 2023] GET /favicon.ico => generated 3169 bytes in 26 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 21/43] 104.140.148.50 () {30 vars in 327 bytes} [Fri Dec 15 04:32:42 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.0 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 22/44] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 04:33:15 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96183|app: 0|req: 21/45] 125.131.72.210 () {60 vars in 1142 bytes} [Fri Dec 15 04:33:15 2023] GET /favicon.ico => generated 3169 bytes in 8 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 23/46] 104.140.148.54 () {30 vars in 327 bytes} [Fri Dec 15 05:17:21 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.0 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 24/47] 83.97.73.87 () {40 vars in 608 bytes} [Fri Dec 15 05:52:31 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 25/48] 50.3.85.62 () {34 vars in 477 bytes} [Fri Dec 15 06:00:31 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 26/49] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 06:29:17 2023] GET / => generated 3232 bytes in 10 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96184|app: 0|req: 27/50] 125.131.72.210 () {60 vars in 1142 bytes} [Fri Dec 15 06:29:17 2023] GET /favicon.ico => generated 3169 bytes in 27 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="짬뽕" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="서울특별시 강남구 도곡동" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+서울특별시 강남구 도곡동
+[pid: 96184|app: 0|req: 28/51] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 06:30:01 2023] POST / => generated 0 bytes in 94 msecs (HTTP/1.1 302) 7 headers in 337 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 22/52] 125.131.72.210 () {66 vars in 1448 bytes} [Fri Dec 15 06:30:01 2023] GET /results/3/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EB%8F%84%EA%B3%A1%EB%8F%99/ => generated 21105 bytes in 32 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 23/53] 125.131.72.210 () {72 vars in 1718 bytes} [Fri Dec 15 06:30:24 2023] POST /results/3/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EB%8F%84%EA%B3%A1%EB%8F%99/ => generated 0 bytes in 33 msecs (HTTP/1.1 302) 7 headers in 349 bytes (1 switches on core 0)
+[pid: 96183|app: 0|req: 24/54] 125.131.72.210 () {66 vars in 1588 bytes} [Fri Dec 15 06:30:24 2023] GET /results/3/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EB%8F%84%EA%B3%A1%EB%8F%99/filtered=20/ => generated 14095 bytes in 34 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 96182|app: 0|req: 2/55] 125.131.72.210 () {62 vars in 1392 bytes} [Fri Dec 15 06:30:38 2023] GET /results/3/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EA%B0%95%EB%82%A8%EA%B5%AC%20%EB%8F%84%EA%B3%A1%EB%8F%99/ => generated 21105 bytes in 37 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 96182|app: 0|req: 3/56] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 06:30:42 2023] GET / => generated 3409 bytes in 11 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="아메리카노" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="부산광역시 해운대구" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+부산광역시 해운대구
+[pid: 96182|app: 0|req: 4/57] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 06:31:07 2023] POST / => generated 0 bytes in 91 msecs (HTTP/1.1 302) 7 headers in 317 bytes (1 switches on core 0)
+[pid: 96182|app: 0|req: 5/58] 125.131.72.210 () {66 vars in 1422 bytes} [Fri Dec 15 06:31:07 2023] GET /results/18/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC/ => generated 14557 bytes in 33 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+[pid: 96182|app: 0|req: 6/59] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 06:31:15 2023] GET / => generated 3576 bytes in 11 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="아메리카노" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="부산광역시 동구" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+부산광역시 동구
+[pid: 96184|app: 0|req: 29/60] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 06:31:24 2023] POST / => generated 0 bytes in 37 msecs (HTTP/1.1 302) 7 headers in 299 bytes (1 switches on core 0)
+[pid: 96182|app: 0|req: 7/61] 125.131.72.210 () {66 vars in 1398 bytes} [Fri Dec 15 06:31:24 2023] GET /results/17/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%8F%99%EA%B5%AC/ => generated 15781 bytes in 25 msecs (HTTP/1.1 200) 8 headers in 359 bytes (1 switches on core 0)
+['아메리카노', '아메리카노', '짬뽕']
+아메리카노
+최근 검색 : 아메리카노
+추천된 태그 : 짬뽕
+[pid: 96182|app: 0|req: 8/62] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 06:31:31 2023] GET / => generated 3705 bytes in 5692 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['아메리카노', '아메리카노', '짬뽕']
+아메리카노
+최근 검색 : 아메리카노
+추천된 태그 : 짬뽕
+[pid: 96182|app: 0|req: 9/63] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 06:31:36 2023] GET / => generated 3705 bytes in 67 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96183|app: 0|req: 25/64] 125.131.72.210 () {60 vars in 1142 bytes} [Fri Dec 15 06:31:37 2023] GET /favicon.ico => generated 3169 bytes in 14 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+['아메리카노', '아메리카노', '짬뽕']
+아메리카노
+최근 검색 : 아메리카노
+추천된 태그 : 짬뽕
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="짜장면" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="동탄" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+동탄
+[pid: 96183|app: 0|req: 26/65] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 06:31:55 2023] POST / => generated 0 bytes in 5490 msecs (HTTP/1.1 302) 7 headers in 251 bytes (1 switches on core 0)
+[pid: 96182|app: 0|req: 10/66] 125.131.72.210 () {66 vars in 1334 bytes} [Fri Dec 15 06:32:01 2023] GET /results/21/%EB%8F%99%ED%83%84/ => generated 8857 bytes in 27 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['짜장면', '아메리카노', '아메리카노', '짬뽕']
+짜장면
+최근 검색 : 짜장면
+추천된 태그 : 짬뽕
+[pid: 96183|app: 0|req: 27/67] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 06:32:05 2023] GET / => generated 3844 bytes in 74 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['짜장면', '아메리카노', '아메리카노', '짬뽕']
+짜장면
+최근 검색 : 짜장면
+추천된 태그 : 짬뽕
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="유린기" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="정자동" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+정자동
+[pid: 96183|app: 0|req: 28/68] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 06:32:17 2023] POST / => generated 0 bytes in 70 msecs (HTTP/1.1 302) 7 headers in 260 bytes (1 switches on core 0)
+[pid: 96184|app: 0|req: 30/69] 125.131.72.210 () {66 vars in 1346 bytes} [Fri Dec 15 06:32:17 2023] GET /results/34/%EC%A0%95%EC%9E%90%EB%8F%99/ => generated 4970 bytes in 18 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['유린기', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+유린기
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/hyungjun/workspace/django/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hyungjun/workspace/django/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/views.py", line 24, in index
+    AI_tag = get_word2vec(entire_Tag_list,last_Tag)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/return_word_word2vec.py", line 76, in get_word2vec
+    similar_tag = w2v_list(recent_search_word, words_list)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/return_word_word2vec.py", line 53, in w2v_list
+    similar_tags = model.wv.most_similar(positive=recent_search, topn=num_recommendations)
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/gensim/models/keyedvectors.py", line 841, in most_similar
+    mean = self.get_mean_vector(keys, weight, pre_normalize=True, post_normalize=True, ignore_missing=False)
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/gensim/models/keyedvectors.py", line 518, in get_mean_vector
+    raise KeyError(f"Key '{key}' not present in vocabulary")
+KeyError: "Key '유린기' not present in vocabulary"
+[pid: 96182|app: 0|req: 11/70] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 06:32:22 2023] GET / => generated 77914 bytes in 157 msecs (HTTP/1.1 500) 7 headers in 242 bytes (1 switches on core 0)
+['유린기', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+유린기
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/hyungjun/workspace/django/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hyungjun/workspace/django/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/views.py", line 24, in index
+    AI_tag = get_word2vec(entire_Tag_list,last_Tag)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/return_word_word2vec.py", line 76, in get_word2vec
+    similar_tag = w2v_list(recent_search_word, words_list)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/return_word_word2vec.py", line 53, in w2v_list
+    similar_tags = model.wv.most_similar(positive=recent_search, topn=num_recommendations)
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/gensim/models/keyedvectors.py", line 841, in most_similar
+    mean = self.get_mean_vector(keys, weight, pre_normalize=True, post_normalize=True, ignore_missing=False)
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/gensim/models/keyedvectors.py", line 518, in get_mean_vector
+    raise KeyError(f"Key '{key}' not present in vocabulary")
+KeyError: "Key '유린기' not present in vocabulary"
+[pid: 96182|app: 0|req: 12/71] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 06:32:24 2023] GET / => generated 77914 bytes in 89 msecs (HTTP/1.1 500) 7 headers in 242 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 96182|app: 0|req: 13/72] 125.131.72.210 () {60 vars in 1142 bytes} [Fri Dec 15 06:32:25 2023] GET /favicon.ico => generated 3169 bytes in 9 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+!!! uWSGI process 96180 got Segmentation Fault !!!
+!!! uWSGI process 96184 got Segmentation Fault !!!
+*** backtrace of 96180 ***
+uwsgi(uwsgi_backtrace+0x33) [0x55ad59115cc3]
+uwsgi(uwsgi_segfault+0x27) [0x55ad591160f7]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x42520) [0x7f3178a42520]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x453fc) [0x7f3178a453fc]
+/usr/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x7f3178a45610]
+uwsgi(+0x3a7c5) [0x55ad590c87c5]
+uwsgi(end_me+0x2b) [0x55ad59112bfb]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x42520) [0x7f3178a42520]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x91117) [0x7f3178a91117]
+/usr/lib/x86_64-linux-gnu/libc.so.6(pthread_cond_wait+0x211) [0x7f3178a93a41]
+/home/hyungjun/.local/lib/python3.10/site-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-0cf96a72.3.23.dev.so(+0x3506fb) [0x7f31727506fb]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x94ac3) [0x7f3178a94ac3]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x126660) [0x7f3178b26660]
+*** end of backtrace ***
+*** backtrace of 96184 ***
+uwsgi(uwsgi_backtrace+0x33) [0x55ad59115cc3]
+uwsgi(uwsgi_segfault+0x27) [0x55ad591160f7]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x42520) [0x7f3178a42520]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x453fc) [0x7f3178a453fc]
+/usr/lib/x86_64-linux-gnu/libc.so.6(on_exit+0) [0x7f3178a45610]
+uwsgi(+0x3a7c5) [0x55ad590c87c5]
+uwsgi(end_me+0x2b) [0x55ad59112bfb]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x42520) [0x7f3178a42520]
+/usr/lib/x86_64-linux-gnu/libc.so.6(epoll_wait+0x5e) [0x7f3178b25c3e]
+uwsgi(event_queue_wait+0x39) [0x55ad591084b9]
+uwsgi(wsgi_req_accept+0x11a) [0x55ad590c5d5a]
+uwsgi(simple_loop_run+0xae) [0x55ad591119ce]
+uwsgi(simple_loop+0x7b) [0x55ad59111abb]
+uwsgi(uwsgi_ignition+0x299) [0x55ad59116449]
+uwsgi(uwsgi_worker_run+0x272) [0x55ad5911aa92]
+uwsgi(uwsgi_run+0x465) [0x55ad5911b015]
+uwsgi(+0x37184) [0x55ad590c5184]
+/usr/lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7f3178a29d90]
+/usr/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80) [0x7f3178a29e40]
+uwsgi(_start+0x25) [0x55ad590c51b5]
+*** end of backtrace ***
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 5 buried after 1 seconds
+['유린기', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+유린기
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/hyungjun/workspace/django/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hyungjun/workspace/django/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/views.py", line 24, in index
+    AI_tag = get_word2vec(entire_Tag_list,last_Tag)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/return_word_word2vec.py", line 76, in get_word2vec
+    similar_tag = w2v_list(recent_search_word, words_list)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/return_word_word2vec.py", line 38, in w2v_list
+    okt = Okt()
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/konlpy/tag/_okt.py", line 51, in __init__
+    jvm.init_jvm(jvmpath, max_heap_size)
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/konlpy/jvm.py", line 64, in init_jvm
+    jpype.startJVM(jvmpath, '-Dfile.encoding=UTF8',
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/jpype/_core.py", line 169, in startJVM
+    raise OSError('JVM cannot be restarted')
+OSError: JVM cannot be restarted
+[pid: 96182|app: 0|req: 14/73] 162.216.149.139 () {34 vars in 647 bytes} [Fri Dec 15 06:33:53 2023] GET / => generated 78682 bytes in 79 msecs (HTTP/1.1 500) 7 headers in 242 bytes (1 switches on core 0)
+Fri Dec 15 06:33:55 2023 - worker 3 (pid: 96182) is taking too much time to die...NO MERCY !!!
+Fri Dec 15 06:33:55 2023 - worker 4 (pid: 96183) is taking too much time to die...NO MERCY !!!
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.23 (64bit) on [Fri Dec 15 15:38:26 2023] ***
+compiled with version: 11.4.0 on 21 November 2023 09:02:05
+os: Linux-6.2.0-37-generic #38~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov  2 18:01:13 UTC 2
+nodename: hyungjun-530U4C
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/hyungjun/workspace/ktp522/place4U
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/hyungjun/workspace/ktp522/place4U
+your processes number limit is 14454
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+Python version: 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x56288dce1250
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 437424 bytes (427 KB) for 5 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x56288dce1250 pid: 105495 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 105495)
+spawned uWSGI worker 1 (pid: 105498, cores: 1)
+spawned uWSGI worker 2 (pid: 105499, cores: 1)
+spawned uWSGI worker 3 (pid: 105500, cores: 1)
+spawned uWSGI worker 4 (pid: 105501, cores: 1)
+spawned uWSGI worker 5 (pid: 105502, cores: 1)
+['유린기', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+유린기
+[pid: 105499|app: 0|req: 1/1] 125.131.72.210 () {64 vars in 1230 bytes} [Fri Dec 15 06:39:07 2023] GET /admin => generated 0 bytes in 2554 msecs (HTTP/1.1 301) 5 headers in 197 bytes (1 switches on core 0)
+[pid: 105499|app: 0|req: 2/2] 125.131.72.210 () {64 vars in 1232 bytes} [Fri Dec 15 06:39:10 2023] GET /admin/ => generated 11399 bytes in 151 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105499|app: 0|req: 3/3] 125.131.72.210 () {62 vars in 1274 bytes} [Fri Dec 15 06:39:12 2023] GET /admin/SearchAndList/searchedtag/ => generated 13625 bytes in 203 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105499|app: 0|req: 4/4] 125.131.72.210 () {58 vars in 1067 bytes} [Fri Dec 15 06:39:12 2023] GET /admin/jsi18n/ => generated 3342 bytes in 21 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 105499|app: 0|req: 5/5] 125.131.72.210 () {58 vars in 1123 bytes} [Fri Dec 15 06:39:13 2023] GET /favicon.ico => generated 3169 bytes in 24 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 105502|app: 0|req: 1/6] 125.131.72.210 () {58 vars in 1097 bytes} [Fri Dec 15 06:39:10 2023] GET /favicon.ico => generated 3169 bytes in 2926 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/hyungjun/workspace/django/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/hyungjun/workspace/django/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/views.py", line 24, in index
+    AI_tag = get_word2vec(entire_Tag_list,last_Tag)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/return_word_word2vec.py", line 76, in get_word2vec
+    similar_tag = w2v_list(recent_search_word, words_list)
+  File "/home/hyungjun/workspace/ktp522/place4U/./SearchAndList/return_word_word2vec.py", line 53, in w2v_list
+    similar_tags = model.wv.most_similar(positive=recent_search, topn=num_recommendations)
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/gensim/models/keyedvectors.py", line 841, in most_similar
+    mean = self.get_mean_vector(keys, weight, pre_normalize=True, post_normalize=True, ignore_missing=False)
+  File "/home/hyungjun/.local/lib/python3.10/site-packages/gensim/models/keyedvectors.py", line 518, in get_mean_vector
+    raise KeyError(f"Key '{key}' not present in vocabulary")
+KeyError: "Key '유린기' not present in vocabulary"
+[pid: 105500|app: 0|req: 1/7] 125.131.72.210 () {64 vars in 1220 bytes} [Fri Dec 15 06:39:06 2023] GET / => generated 78114 bytes in 9300 msecs (HTTP/1.1 500) 7 headers in 242 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 2/8] 125.131.72.210 () {70 vars in 1485 bytes} [Fri Dec 15 06:39:35 2023] POST /admin/SearchAndList/searchedtag/ => generated 8553 bytes in 80 msecs (HTTP/1.1 200) 10 headers in 470 bytes (1 switches on core 0)
+[pid: 105499|app: 0|req: 6/9] 125.131.72.210 () {70 vars in 1485 bytes} [Fri Dec 15 06:39:37 2023] POST /admin/SearchAndList/searchedtag/ => generated 0 bytes in 63 msecs (HTTP/1.1 302) 11 headers in 576 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 3/10] 125.131.72.210 () {64 vars in 1483 bytes} [Fri Dec 15 06:39:37 2023] GET /admin/SearchAndList/searchedtag/ => generated 13462 bytes in 49 msecs (HTTP/1.1 200) 11 headers in 569 bytes (1 switches on core 0)
+[pid: 105501|app: 0|req: 1/11] 125.131.72.210 () {58 vars in 1067 bytes} [Fri Dec 15 06:39:37 2023] GET /admin/jsi18n/ => generated 3342 bytes in 1841 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 105501|app: 0|req: 2/12] 125.131.72.210 () {60 vars in 1160 bytes} [Fri Dec 15 06:44:51 2023] GET /admin => generated 0 bytes in 10 msecs (HTTP/1.1 301) 5 headers in 197 bytes (1 switches on core 0)
+[pid: 105501|app: 0|req: 3/13] 125.131.72.210 () {60 vars in 1162 bytes} [Fri Dec 15 06:44:51 2023] GET /admin/ => generated 11338 bytes in 71 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 105502|app: 0|req: 4/14] 125.131.72.210 () {58 vars in 1089 bytes} [Fri Dec 15 06:44:51 2023] GET /favicon.ico => generated 3169 bytes in 13 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 5/15] 125.131.72.210 () {62 vars in 1266 bytes} [Fri Dec 15 06:45:01 2023] GET /admin/SearchAndList/searchedtag/ => generated 13320 bytes in 34 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105501|app: 0|req: 4/16] 125.131.72.210 () {58 vars in 1070 bytes} [Fri Dec 15 06:45:01 2023] GET /admin/jsi18n/ => generated 3342 bytes in 10 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 6/17] 125.131.72.210 () {60 vars in 1162 bytes} [Fri Dec 15 06:45:29 2023] GET /admin/ => generated 11338 bytes in 52 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 7/18] 125.131.72.210 () {62 vars in 1268 bytes} [Fri Dec 15 06:45:39 2023] GET /admin/SearchAndList/searchedlist/ => generated 22813 bytes in 101 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105498|app: 0|req: 1/19] 125.131.72.210 () {58 vars in 1071 bytes} [Fri Dec 15 06:45:39 2023] GET /admin/jsi18n/ => generated 3342 bytes in 1842 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+Not Found: /vpnsvc/connect.cgi
+[pid: 105500|app: 0|req: 2/20] 172.104.131.24 () {40 vars in 511 bytes} [Fri Dec 15 06:46:49 2023] POST /vpnsvc/connect.cgi => generated 3191 bytes in 31 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+['짜장면', '아메리카노', '아메리카노', '짬뽕']
+짜장면
+최근 검색 : 짜장면
+추천된 태그 : 짬뽕
+[pid: 105500|app: 0|req: 3/21] 104.140.148.98 () {30 vars in 327 bytes} [Fri Dec 15 06:48:52 2023] GET / => generated 3844 bytes in 129 msecs (HTTP/1.0 200) 8 headers in 358 bytes (1 switches on core 0)
+['짜장면', '아메리카노', '아메리카노', '짬뽕']
+짜장면
+최근 검색 : 짜장면
+추천된 태그 : 짬뽕
+[pid: 105500|app: 0|req: 4/22] 154.6.130.9 () {52 vars in 952 bytes} [Fri Dec 15 06:50:06 2023] GET / => generated 3844 bytes in 75 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['짜장면', '아메리카노', '아메리카노', '짬뽕']
+짜장면
+최근 검색 : 짜장면
+추천된 태그 : 짬뽕
+[pid: 105502|app: 0|req: 8/23] 103.203.59.1 () {36 vars in 444 bytes} [Fri Dec 15 06:51:25 2023] GET / => generated 3844 bytes in 5469 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['짜장면', '아메리카노', '아메리카노', '짬뽕']
+짜장면
+최근 검색 : 짜장면
+추천된 태그 : 짬뽕
+[pid: 105501|app: 0|req: 5/24] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 07:04:07 2023] GET / => generated 3844 bytes in 6084 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 105500|app: 0|req: 5/25] 125.131.72.210 () {60 vars in 1142 bytes} [Fri Dec 15 07:04:13 2023] GET /favicon.ico => generated 3169 bytes in 8 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
+['짜장면', '아메리카노', '아메리카노', '짬뽕']
+짜장면
+최근 검색 : 짜장면
+추천된 태그 : 짬뽕
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="마파두부" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="정자동" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+정자동
+[pid: 105500|app: 0|req: 6/26] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 07:04:53 2023] POST / => generated 0 bytes in 94 msecs (HTTP/1.1 302) 7 headers in 260 bytes (1 switches on core 0)
+[pid: 105500|app: 0|req: 7/27] 125.131.72.210 () {66 vars in 1346 bytes} [Fri Dec 15 07:04:54 2023] GET /results/22/%EC%A0%95%EC%9E%90%EB%8F%99/ => generated 8895 bytes in 24 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+마파두부
+최근 검색 : 마파두부
+추천된 태그 : 짜장면
+[pid: 105500|app: 0|req: 8/28] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 07:04:56 2023] GET / => generated 3992 bytes in 52 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+마파두부
+최근 검색 : 마파두부
+추천된 태그 : 짜장면
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="탕수육" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="삼성동" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+삼성동
+[pid: 105502|app: 0|req: 9/29] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 07:05:13 2023] POST / => generated 0 bytes in 146 msecs (HTTP/1.1 302) 7 headers in 260 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 10/30] 125.131.72.210 () {66 vars in 1346 bytes} [Fri Dec 15 07:05:13 2023] GET /results/23/%EC%82%BC%EC%84%B1%EB%8F%99/ => generated 7986 bytes in 17 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+탕수육
+최근 검색 : 탕수육
+추천된 태그 : 짜장면
+[pid: 105502|app: 0|req: 11/31] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 07:05:16 2023] GET / => generated 3970 bytes in 94 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+탕수육
+최근 검색 : 탕수육
+추천된 태그 : 짜장면
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="삼선짜장" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="죽전" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+죽전
+[pid: 105501|app: 0|req: 6/32] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 07:05:33 2023] POST / => generated 0 bytes in 165 msecs (HTTP/1.1 302) 7 headers in 251 bytes (1 switches on core 0)
+[pid: 105501|app: 0|req: 7/33] 125.131.72.210 () {66 vars in 1334 bytes} [Fri Dec 15 07:05:33 2023] GET /results/24/%EC%A3%BD%EC%A0%84/ => generated 8360 bytes in 22 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['삼선짜장', '탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+삼선짜장
+최근 검색 : 삼선짜장
+추천된 태그 : 아메리카노
+[pid: 105502|app: 0|req: 12/34] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 07:05:34 2023] GET / => generated 3951 bytes in 66 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['삼선짜장', '탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+삼선짜장
+최근 검색 : 삼선짜장
+추천된 태그 : 아메리카노
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="삼선짬뽕" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="천안" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+천안
+[pid: 105500|app: 0|req: 9/35] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 07:06:26 2023] POST / => generated 0 bytes in 99 msecs (HTTP/1.1 302) 7 headers in 251 bytes (1 switches on core 0)
+[pid: 105501|app: 0|req: 8/36] 125.131.72.210 () {66 vars in 1334 bytes} [Fri Dec 15 07:06:26 2023] GET /results/28/%EC%B2%9C%EC%95%88/ => generated 8868 bytes in 20 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['삼선짬뽕', '삼선짜장', '탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+삼선짬뽕
+최근 검색 : 삼선짬뽕
+추천된 태그 : 마파두부
+[pid: 105500|app: 0|req: 10/37] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 07:06:28 2023] GET / => generated 3929 bytes in 67 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['삼선짬뽕', '삼선짜장', '탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+삼선짬뽕
+최근 검색 : 삼선짬뽕
+추천된 태그 : 마파두부
+<div>
+    <label for="id_input_tag">Input tag:</label>
+
+
+
+<input type="text" name="input_tag" value="볶음밥" maxlength="100" required id="id_input_tag">
+    
+</div>
+
+  <div>
+    <label for="id_input_location">Input location:</label>
+
+
+
+<input type="text" name="input_location" value="파주" maxlength="100" required id="id_input_location">
+    
+      
+    
+</div>
+파주
+[pid: 105501|app: 0|req: 9/38] 125.131.72.210 () {72 vars in 1440 bytes} [Fri Dec 15 07:06:45 2023] POST / => generated 0 bytes in 156 msecs (HTTP/1.1 302) 7 headers in 251 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 13/39] 125.131.72.210 () {66 vars in 1334 bytes} [Fri Dec 15 07:06:45 2023] GET /results/27/%ED%8C%8C%EC%A3%BC/ => generated 7397 bytes in 19 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['볶음밥', '삼선짬뽕', '삼선짜장', '탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+볶음밥
+최근 검색 : 볶음밥
+추천된 태그 : 삼선짬뽕
+[pid: 105502|app: 0|req: 14/40] 125.131.72.210 () {62 vars in 1209 bytes} [Fri Dec 15 07:06:47 2023] GET / => generated 3929 bytes in 53 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+['볶음밥', '삼선짬뽕', '삼선짜장', '탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+볶음밥
+최근 검색 : 볶음밥
+추천된 태그 : 삼선짬뽕
+[pid: 105502|app: 0|req: 15/41] 125.131.72.210 () {64 vars in 1220 bytes} [Fri Dec 15 07:07:55 2023] GET / => generated 3929 bytes in 44 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+[pid: 105500|app: 0|req: 11/42] 125.131.72.210 () {64 vars in 1232 bytes} [Fri Dec 15 07:07:57 2023] GET /admin/ => generated 11338 bytes in 101 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105501|app: 0|req: 10/43] 125.131.72.210 () {62 vars in 1274 bytes} [Fri Dec 15 07:08:03 2023] GET /admin/SearchAndList/searchedtag/ => generated 13320 bytes in 92 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 16/44] 125.131.72.210 () {58 vars in 1067 bytes} [Fri Dec 15 07:08:03 2023] GET /admin/jsi18n/ => generated 3342 bytes in 11 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+[pid: 105500|app: 0|req: 12/45] 125.131.72.210 () {60 vars in 1170 bytes} [Fri Dec 15 07:08:13 2023] GET /admin/ => generated 11338 bytes in 22 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105500|app: 0|req: 13/46] 125.131.72.210 () {62 vars in 1276 bytes} [Fri Dec 15 07:08:42 2023] GET /admin/SearchAndList/searchedlist/ => generated 22813 bytes in 101 msecs (HTTP/1.1 200) 10 headers in 471 bytes (1 switches on core 0)
+[pid: 105502|app: 0|req: 17/47] 125.131.72.210 () {58 vars in 1068 bytes} [Fri Dec 15 07:08:42 2023] GET /admin/jsi18n/ => generated 3342 bytes in 7 msecs (HTTP/1.1 200) 7 headers in 230 bytes (1 switches on core 0)
+['볶음밥', '삼선짬뽕', '삼선짜장', '탕수육', '마파두부', '짜장면', '아메리카노', '아메리카노', '짬뽕']
+볶음밥
+최근 검색 : 볶음밥
+추천된 태그 : 삼선짬뽕
+[pid: 105502|app: 0|req: 18/48] 83.97.73.87 () {40 vars in 601 bytes} [Fri Dec 15 07:32:27 2023] GET / => generated 3929 bytes in 38 msecs (HTTP/1.1 200) 8 headers in 358 bytes (1 switches on core 0)
+Not Found: /autodiscover/autodiscover.json
+[pid: 105500|app: 0|req: 14/49] 198.199.109.66 () {38 vars in 531 bytes} [Fri Dec 15 08:21:44 2023] GET /autodiscover/autodiscover.json?@zdi/Powershell => generated 3242 bytes in 9 msecs (HTTP/1.1 404) 6 headers in 215 bytes (1 switches on core 0)
